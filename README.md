@@ -1,1 +1,114 @@
 # Mindease
+body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+        color: #1a202c;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .serif { font-family: 'Newsreader', serif; }
+
+    .app-shell {
+        width: 100%;
+        max-width: 430px;
+        height: 100%;
+        max-height: 932px;
+        background: #f8fafc;
+        position: relative;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+        .app-shell {
+            border-radius: 40px;
+            height: 90vh;
+            border: 8px solid #1a202c;
+        }
+    }
+
+    /* Animations */
+    .fade-in { animation: fadeIn 0.5s ease-out forwards; }
+    .slide-up { animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .breathe {
+        animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+        0%, 100% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* Glassmorphism */
+    .glass {
+        background: var(--glass);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    /* Transitions */
+    .screen {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        background: inherit;
+        z-index: 10;
+    }
+
+    .screen.active { display: flex; }
+
+    .chat-bubble {
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+
+    .chat-bubble.agent {
+        background: #e2e8f0;
+        color: #1e293b;
+        border-bottom-left-radius: 4px;
+        align-self: flex-start;
+    }
+
+    .chat-bubble.user {
+        background: var(--navy-deep);
+        color: white;
+        border-bottom-right-radius: 4px;
+        align-self: flex-end;
+    }
+
+    /* Grounding Progress */
+    .progress-bar {
+        height: 4px;
+        background: #e2e8f0;
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: var(--emerald);
+        transition: width 0.5s ease;
+    }
+</style>
